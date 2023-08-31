@@ -1,0 +1,55 @@
+<style>
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+</style>
+
+<div class="centered-container">
+  <div class="container">
+    <div class="header">
+      <h1>Quotes</h1>
+      <%= link_to "New quote",
+                  new_quote_path,
+                  class: "btn btn--primary",
+                  data: { turbo_frame: dom_id(Quote.new) } %>
+    </div>
+
+    <%= turbo_frame_tag Quote.new %>
+
+    <%= turbo_frame_tag "quotes" do %>
+      <%= render @quotes %>
+    <% end %>
+  </div>
