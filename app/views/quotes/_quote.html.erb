@@ -6,10 +6,10 @@
   </style>
  <%= turbo_frame_tag quote do %>
   <div class="quote">
-    <%= link_to quote.name, quote_path(quote), data: { turbo_frame: "_top" }, class: "no-underline" %>
+    <%= link_to quote.name.capitalize, quote_path(quote), data: { turbo_frame: "_top" }, class: "no-underline" %>
     <div class="quote__actions">
-      <%= button_to "Delete", quote_path(quote), method: :delete, class: "btn btn-outline-primary mr-2" %><br>
-      <%= link_to "Edit", edit_quote_path(quote), class: "btn btn-outline-danger" %>
+      <%= button_to "Delete", quote_path(quote), method: :delete, class: "btn btn--primary " %><br>
+      <%= link_to "Edit", edit_quote_path(quote), class: "btn btn--danger" %>
       
     </div>
   </div>
